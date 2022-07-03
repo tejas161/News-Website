@@ -50,7 +50,7 @@ function newsGenerator(){
     //creating an ajax get request
     const xhr = new XMLHttpRequest();
 
-    xhr.open('GET', `https://newsapi.org/v2/top-headlines?sources=${source}&apiKey=${apiKey}`, true);
+    xhr.open('GET', `http://newsapi.org/v2/top-headlines?sources=${source}&apiKey=${apiKey}`, true);
 
     //when response is ready
     xhr.onload = function () {
@@ -78,7 +78,7 @@ function newsGenerator(){
             newsAccordion.innerHTML = newsHtml;
         }
         else {
-            console.log(err);
+            console.log('err');
         }
     }
 
