@@ -3,6 +3,8 @@ if(source==="")
 {
     newsGenerator();
 }
+
+
 var a = document.getElementById('search-btn');
 var b = document.getElementById('search-news');
  
@@ -43,14 +45,14 @@ function newsGenerator(){
     if (source === "") {
         source = 'al-jazeera-english';
     }
-    let apiKey = '7bd14a9aab864fdfaf0c62315a25a12c';
+    let apiKey='7e3fb0297c31b8517c16258a59d9bc57';
     //grab the new conatiner
     let newsAccordion = document.getElementById('newsAccordion');
 
     //creating an ajax get request
     const xhr = new XMLHttpRequest();
 
-    xhr.open('GET', `https://gnewsapi.org/v2/top-headlines?sources=${source}&apiKey=${apiKey}`, true);
+      xhr.open('GET',`https://gnews.io/api/v4/search?q=${source}&token=${apiKey}`,true);
 
     //when response is ready
     xhr.onload = function () {
@@ -78,7 +80,7 @@ function newsGenerator(){
             newsAccordion.innerHTML = newsHtml;
         }
         else {
-            console.log('err');
+            console.log(err);
         }
     }
 
