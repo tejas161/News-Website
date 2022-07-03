@@ -22,7 +22,7 @@ channelNames.addEventListener('click',(e) => {
 a.addEventListener('click', (e) => {
     e.preventDefault();
     source = b.value;
-    console.log('clicked search');
+    
     newsGenerator();
 
 });
@@ -31,20 +31,15 @@ function newsGenerator(){
 
     document.body.scrollTop = document.documentElement.scrollTop = 0;
     var srcName = document.getElementById('src-name');
-    if(source === "")
-    {
-        srcName.innerHTML = (`<span class="badge bg-secondary">Top Trending News </span>`);
-
-    }
-    else{
-    srcName.innerHTML = (`<span class="badge bg-secondary">Top News by ${source} </span>`);
-    }
+   
 
 
     //Initialize the news api parameters
     if (source === "") {
-        source = 'al-jazeera-english';
+        source = 'India';
     }
+
+    srcName.innerHTML = (`<span class="badge bg-secondary">Top Trending News in ${source} </span>`);
     let apiKey='7e3fb0297c31b8517c16258a59d9bc57';
     //grab the new conatiner
     let newsAccordion = document.getElementById('newsAccordion');
@@ -59,7 +54,7 @@ function newsGenerator(){
         if (this.status === 200) {
             let json = JSON.parse(this.responseText);
             let articles = json.articles;
-            // console.log(articles);
+          
             let newsHtml = "";
 
             articles.forEach(function (element, index) {
@@ -80,7 +75,7 @@ function newsGenerator(){
             newsAccordion.innerHTML = newsHtml;
         }
         else {
-            console.log(err);
+            console.log('An Error Occurred');
         }
     }
 
