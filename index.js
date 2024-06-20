@@ -40,7 +40,7 @@ function newsGenerator(){
     }
 
     srcName.innerHTML = (`<span class="badge bg-secondary">Top Trending News in ${source} </span>`);
-    let apiKey='7e3fb0297c31b8517c16258a59d9bc57';
+    let apiKey='ydt';
     //grab the new conatiner
     let newsAccordion = document.getElementById('newsAccordion');
 
